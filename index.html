@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>randomradius</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Top Buttons -->
+    <div class="top-buttons">
+        <button class="top-left-button">MUSIC</button>
+        <button class="top-right-button">ARCHIVE</button>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="hero-content">
+        </div>
+
+        <!-- Circular Button to Open Menu -->
+        <button class="circle-button" onclick="toggleMenu()">
+            <div class="circle-border">
+                <img src="assets/music.jpg" alt="Explore"> <!-- Replace with your circular design -->
+            </div>
+        </button>
+    </div>
+
+    <!-- Hidden Menu Section -->
+    <div class="menu-overlay" id="menu">
+        <button class="circle-button close-menu" onclick="toggleMenu()">
+            <div class="circle-border">
+                <span class="close-text">&#10005;</span> <!-- Display X when menu is open -->
+            </div>
+        </button>
+        <div class="menu-content">
+            <a href="#">LISTEN</a>
+            <a href="#">ALBUMS</a>
+            <a href="#">ARCHIVE</a>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Toggle the menu (fade in/out)
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.classList.toggle('active'); // Toggle visibility and opacity
+        }
+    </script>
+
+</body>
+</html>
