@@ -78,17 +78,19 @@ body, html {
 
 /* Circular Button */
 .circle-button {
-    position: absolute;
-    bottom: 50px;
+    position: fixed; /* Fix the button to the viewport */
+    bottom: 50px; /* Distance from the bottom of the screen */
+    left: 50%; /* Center the button horizontally */
+    transform: translateX(-50%); /* Adjust horizontal centering */
     background-color: transparent;
     border: none;
     cursor: pointer;
     transition: transform 0.3s ease;
-    z-index: 2; /* Ensures the button is above the video */
+    z-index: 2; /* Ensure the button appears above the video */
 }
 
 .circle-button:hover {
-    transform: scale(1.1);
+    transform: translateX(-50%) scale(1.1);
 }
 
 .circle-border {
@@ -182,8 +184,7 @@ video {
     display: none;
 }
 
-/* Show mobile video on smaller screens */
-@media (max-width: 768px) {
+@media (orientation: portrait) {
     .video-desktop {
         display: none;
     }
