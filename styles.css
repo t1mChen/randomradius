@@ -161,13 +161,20 @@ body, html {
     color: black;
 }
 
-/* General video styles */
+
+
+/* Container for the video */
 .video-container {
+    display: flex;
+    justify-content: center;  /* Centers the video horizontally */
+    align-items: center;      /* Centers the video vertically */
     position: relative;
     width: 100%;
     height: 100vh; /* Full viewport height */
-    overflow: hidden;
+    overflow: hidden;      /* Ensures the container takes the full viewport height */
 }
+
+
 
 video {
     position: absolute;
