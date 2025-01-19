@@ -16,13 +16,19 @@
 
     <!-- Hero Section -->
     <div class="hero">
+        <!-- Video Background -->
+        <video class="background-video" autoplay muted loop>
+            <source src="assets/art.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
         <div class="hero-content">
         </div>
 
         <!-- Circular Button to Open Menu -->
         <button class="circle-button" onclick="toggleMenu()">
             <div class="circle-border">
-                <img src="assets/music.jpg" alt="Explore"> <!-- Replace with your circular design -->
+                <img src="assets/music.jpg" alt="Explore"> <!-- Circular button image -->
             </div>
         </button>
     </div>
@@ -31,12 +37,12 @@
     <div class="menu-overlay" id="menu">
         <button class="circle-button close-menu" onclick="toggleMenu()">
             <div class="circle-border">
-                <span class="close-text">&#10005;</span> <!-- Display X when menu is open -->
+                <span class="close-text">&#10005;</span> <!-- X icon for closing -->
             </div>
         </button>
         <div class="menu-content">
             <a href="#">LISTEN</a>
-            <a href="#">ALBUMS</a>
+            <a href="#">DESTINY TOTW</a>
             <a href="#">ARCHIVE</a>
         </div>
     </div>
