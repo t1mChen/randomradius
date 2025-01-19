@@ -158,3 +158,37 @@ body, html {
     background: white;
     color: black;
 }
+
+/* General video styles */
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    overflow: hidden;
+}
+
+video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%; /* Cover the container width */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Ensures the video fills the container */
+}
+
+/* Hide mobile video by default */
+.video-mobile {
+    display: none;
+}
+
+/* Show mobile video on smaller screens */
+@media (max-width: 768px) {
+    .video-desktop {
+        display: none;
+    }
+
+    .video-mobile {
+        display: block;
+    }
+}
