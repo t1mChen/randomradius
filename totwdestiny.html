@@ -16,7 +16,7 @@
     </div>
     
 
-    <!-- Album Title -->
+    <!-- Album Title 
     <div class="album-title-container">
         <img src="assets/album/title.png" alt="Destiny Totw" class="album-title">
     </div>
@@ -27,18 +27,21 @@
 
     <div class="album-cover-container">
         <iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/74M2Cv4hbCsuxvKYDLWeoV?utm_source=generator" width="80%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </div>
+    </div> -->
 
     <div class="album-switcher">
-    <button class="nav-btn left" onclick="prevAlbum()">&#9664;</button>
+    <button class="nav-btn left" onclick="prevAlbum()">&#9664;</button> 
 
-    <img
-        id="albumImage"
-        class="album-image"
-        src=""
-        alt="Album Cover"
-        onclick="openAlbum()"
-    />
+    <div class="album-info">
+        <img
+            id="albumImage"
+            class="album-image"
+            src=""
+            alt="Album Cover"
+            onclick="openAlbum()"
+        />
+        <h3 id="albumTitle" class="album-title-text"></h3>
+    </div>
 
     <button class="nav-btn right" onclick="nextAlbum()">&#9654;</button>
     </div>
@@ -52,18 +55,22 @@
 
         const albums = [
             {
+            title: "THROWBACK - Single",
             image: "assets/albumcovers/tb.webp",
             link: "https://open.spotify.com/album/74M2Cv4hbCsuxvKYDLWeoV"
             },
             {
+            title: "Top of the World: Destiny - Album",
             image: "assets/albumcovers/totwd.webp",
             link: "https://open.spotify.com/album/XXXXXXXX"
             },
             {
+            title: "The Switch Up - EP",
             image: "assets/albumcovers/tsu.webp",
             link: "https://open.spotify.com/album/YYYYYYYY"
             },
             {
+            title: "WHERE I START - Single",
             image: "assets/albumcovers/wis.webp",
             link: "https://open.spotify.com/album/YYYYYYYY"
             }
@@ -73,10 +80,13 @@
         let currentIndex = 0;
 
         const albumImage = document.getElementById("albumImage");
+        const albumTitle = document.getElementById("albumTitle");
 
         function renderAlbum() {
             albumImage.src = albums[currentIndex].image;
+            albumTitle.textContent = albums[currentIndex].title;
         }
+
 
         function nextAlbum() {
             currentIndex = (currentIndex + 1) % albums.length;
