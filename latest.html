@@ -12,42 +12,25 @@
     <!-- Top Buttons -->
     <div class="top-buttons">
         <a href="index.html"><button class="top-left-button">HOME</button></a>
-        <a href="latest.html"><button class="top-left-button">LATEST</button></a>
         <a href="totwdestiny.html"><button class="top-right-button">EXPLORE</button></a>
     </div>
     
 
-    <div style="height: 100px;"></div>
-
     <!-- Album Title 
     <div class="album-title-container">
         <img src="assets/album/title.png" alt="Destiny Totw" class="album-title">
-    </div>
+    </div>-->
+
+    <div style="height: 100px;"></div>
 
     <div class="album-cover-container">
-        <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="450" style="width:80%;overflow:hidden;border-radius:10px;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/qa/album/top-of-the-world-destiny/1800838941"></iframe>
+       <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/album/164akCpmq6HMOQIJDoTrdo?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
     </div>
 
     <div class="album-cover-container">
         <iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/74M2Cv4hbCsuxvKYDLWeoV?utm_source=generator" width="80%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </div> -->
-
-    <div class="album-carousel">
-        <button class="nav-btn left" onclick="prevAlbum()">&#9664;</button>
-
-        <div class="album-container">
-            <img
-                id="albumImage"
-                class="album-image"
-                src=""
-                alt="Album Cover"
-                onclick="openAlbum()"
-            />
-            <h3 id="albumTitle" class="album-title-text"></h3>
-        </div>
-
-        <button class="nav-btn right" onclick="nextAlbum()">&#9654;</button>
     </div>
+
     <script>
         // Toggle the menu (fade in/out)
         function toggleMenu() {
