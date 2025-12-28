@@ -29,23 +29,22 @@
         <iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/74M2Cv4hbCsuxvKYDLWeoV?utm_source=generator" width="80%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
     </div> -->
 
-    <div class="album-switcher">
-    <button class="nav-btn left" onclick="prevAlbum()">&#9664;</button> 
+    <div class="album-carousel">
+        <button class="nav-btn left" onclick="prevAlbum()">&#9664;</button>
 
-    <div class="album-info">
-        <img
-            id="albumImage"
-            class="album-image"
-            src=""
-            alt="Album Cover"
-            onclick="openAlbum()"
-        />
-        <h3 id="albumTitle" class="album-title-text"></h3>
+        <div class="album-container">
+            <img
+                id="albumImage"
+                class="album-image"
+                src=""
+                alt="Album Cover"
+                onclick="openAlbum()"
+            />
+            <h3 id="albumTitle" class="album-title-text"></h3>
+        </div>
+
+        <button class="nav-btn right" onclick="nextAlbum()">&#9654;</button>
     </div>
-
-    <button class="nav-btn right" onclick="nextAlbum()">&#9654;</button>
-    </div>
-
     <script>
         // Toggle the menu (fade in/out)
         function toggleMenu() {
@@ -82,21 +81,35 @@
         const albumImage = document.getElementById("albumImage");
         const albumTitle = document.getElementById("albumTitle");
 
-        function renderAlbum() {
-            albumImage.src = albums[currentIndex].image;
-            albumTitle.textContent = albums[currentIndex].title;
+        function renderAlbum(nextIndex = currentIndex, direction = "right") {
+            // Animate out
+            albumImage.style.transform = `translateX(${direction === "right" ? 100 : -100}%)`;
+            albumImage.style.opacity = 0;
+
+            setTimeout(() => {
+                currentIndex = nextIndex;
+                albumImage.src = albums[currentIndex].image;
+                albumTitle.textContent = albums[currentIndex].title;
+
+                // Animate in
+                albumImage.style.transform = `translateX(${direction === "right" ? -100 : 100}%)`;
+                albumImage.style.opacity = 0;
+
+                setTimeout(() => {
+                    albumImage.style.transform = "translateX(0)";
+                    albumImage.style.opacity = 1;
+                }, 50);
+            }, 300);
         }
 
-
         function nextAlbum() {
-            currentIndex = (currentIndex + 1) % albums.length;
-            renderAlbum();
+            const nextIndex = (currentIndex + 1) % albums.length;
+            renderAlbum(nextIndex, "right");
         }
 
         function prevAlbum() {
-            currentIndex =
-            (currentIndex - 1 + albums.length) % albums.length;
-            renderAlbum();
+            const nextIndex = (currentIndex - 1 + albums.length) % albums.length;
+            renderAlbum(nextIndex, "left");
         }
 
         function openAlbum() {
