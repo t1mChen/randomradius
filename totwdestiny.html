@@ -29,25 +29,73 @@
         <iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/74M2Cv4hbCsuxvKYDLWeoV?utm_source=generator" width="80%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
     </div>
 
-    <!-- Sections for Discs -->
-    <div class="sections">
-        <!-- Disc 1 -->
-        <div class="disc">
-            <ol>
-                
-            </ol>
-        </div>
+    <div class="album-switcher">
+    <button class="nav-btn left" onclick="prevAlbum()">&#9664;</button>
 
+    <img
+        id="albumImage"
+        class="album-image"
+        src=""
+        alt="Album Cover"
+        onclick="openAlbum()"
+    />
+
+    <button class="nav-btn right" onclick="nextAlbum()">&#9654;</button>
     </div>
 
-    <!-- JavaScript -->
     <script>
         // Toggle the menu (fade in/out)
         function toggleMenu() {
             const menu = document.getElementById('menu');
             menu.classList.toggle('active'); // Toggle visibility and opacity
         }
+
+        const albums = [
+            {
+            image: "assets/albumcovers/tb.webp",
+            link: "https://open.spotify.com/album/74M2Cv4hbCsuxvKYDLWeoV"
+            },
+            {
+            image: "assets/albumcovers/totwd.webp",
+            link: "https://open.spotify.com/album/XXXXXXXX"
+            },
+            {
+            image: "assets/albumcovers/tsu.webp",
+            link: "https://open.spotify.com/album/YYYYYYYY"
+            },
+            {
+            image: "assets/albumcovers/wis.webp",
+            link: "https://open.spotify.com/album/YYYYYYYY"
+            }
+
+        ];
+
+        let currentIndex = 0;
+
+        const albumImage = document.getElementById("albumImage");
+
+        function renderAlbum() {
+            albumImage.src = albums[currentIndex].image;
+        }
+
+        function nextAlbum() {
+            currentIndex = (currentIndex + 1) % albums.length;
+            renderAlbum();
+        }
+
+        function prevAlbum() {
+            currentIndex =
+            (currentIndex - 1 + albums.length) % albums.length;
+            renderAlbum();
+        }
+
+        function openAlbum() {
+            window.open(albums[currentIndex].link, "_blank");
+        }
+
+        renderAlbum();
     </script>
+
 
 </body>
 </html>

@@ -282,3 +282,37 @@ video {
     transform: scale(1.05); /* Slightly enlarges the image on hover */
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Adds a subtle shadow */
 }
+
+.album-switcher {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  margin: 60px 0;
+}
+
+.album-image {
+  width: 320px;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.album-image:hover {
+  transform: scale(1.05);
+}
+
+.nav-btn {
+  font-size: 40px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.nav-btn:hover {
+  opacity: 0.7;
+}
