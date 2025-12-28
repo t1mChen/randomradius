@@ -291,44 +291,18 @@ video {
   margin: 60px 0;
 }
 
-.album-image {
-  width: 320px;
-  height: 320px;
-  object-fit: cover;
-  border-radius: 16px;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.album-image:hover {
-  transform: scale(1.05);
-}
-
-.nav-btn {
-  font-size: 40px;
-  background: none;
-  border: none;
-  color: white;
-  cursor: pointer;
-  transition: opacity 0.2s;
-}
-
-.nav-btn:hover {
-  opacity: 0.7;
-}
-
 /* ---------- Fullscreen Centered Album Carousel ---------- */
 .album-carousel {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
+    position: fixed;        /* fixed so it centers relative to viewport */
+    top: 50%;               /* vertical center */
+    left: 50%;              /* horizontal center */
+    transform: translate(-50%, -50%); /* move back by half width/height */
     display: flex;
-    justify-content: center; /* center album horizontally */
-    align-items: center;     /* center album vertically */
-    overflow: hidden;
-    box-sizing: border-box;
-    padding: 0 5vw; /* space for nav buttons relative to screen width */
-    background-color: #000; /* optional */
+    justify-content: center; 
+    align-items: center;     
+    width: 90vw;            /* almost full width */
+    height: auto;           /* height adapts to content */
+    z-index: 5;             /* above background but below top buttons if needed */
 }
 
 /* Container for album image + title */
@@ -336,16 +310,15 @@ video {
     display: flex;
     flex-direction: column;
     align-items: center;
-    flex-shrink: 0;
     position: relative;
 }
 
-/* Album image (responsive using viewport width) */
+/* Album image (responsive) */
 .album-image {
-    width: 25vw;      /* album width scales with viewport */
-    max-width: 320px; /* optional maximum size */
-    height: auto;     /* maintains aspect ratio */
-    border-radius: 2vw;
+    width: 25vw;
+    max-width: 320px;
+    height: auto;
+    border-radius: 16px;
     cursor: pointer;
     transition: transform 0.5s ease, opacity 0.5s ease;
 }
@@ -353,11 +326,10 @@ video {
 /* Album title */
 .album-title-text {
     margin-top: 2vh;
-    font-size: 2vw; /* scales with viewport width */
+    font-size: 2vw;
     color: #fff;
     text-align: center;
     opacity: 0.9;
-    transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 /* Navigation buttons */
@@ -365,14 +337,12 @@ video {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 6vw;   /* scales with screen width */
+    font-size: 6vw;
     background: none;
     border: none;
     color: #fff;
     cursor: pointer;
-    user-select: none;
     z-index: 10;
-    transition: opacity 0.2s, transform 0.2s;
 }
 
 .nav-btn.left {
